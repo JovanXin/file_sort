@@ -1,20 +1,24 @@
 def main():
 
   print_line = False
-  solution_number = 1
-
-  with open("ex_list.txt", 'r') as file_1, open("sol_list.txt", "w") as file_2:
+  number = 1
+  INPUT_FILE = input("enter input file: ")
+  starting_word = input("enter starting word: ")
+  ending_word = input("enter ending word: ")
+  OUTPUT_FILE = input("enter output_file name: ")
+  
+  
+  with open(INPUT_FILE, 'r') as file_1, open(OUTPUT_FILE, "w") as file_2:
     for line in file_1:
 
       '''
       Once we have reached a solution, start printing
       '''
-      if "Solution" in line:
+      if starting_word in line:
 
-        file_2.write(f"\nSolution: {solution_number}\n")
-        #sys.stdout.write(f"Solution: {solution_number}")
+        file_2.write(f"\n{starting_word}: {number}\n")
         
-        solution_number += 1 
+        number += 1 
         print_line = True;
         continue
 
@@ -22,7 +26,7 @@ def main():
       Print until end of solution has been reached
       '''
       if print_line:
-        if "#----------------------------------------#" in line:
+        if ending_word in line:
           print_line = False;
           continue
         
@@ -30,25 +34,25 @@ def main():
         
     return("It is successful")
 
-def py2_3(): #converts python 2 to python 3
+def word_convert():
   
-  original = "raw_input"
-  new = "input"
+  original = input("what word would you like to replace: ")
+  new = ("What word do you want to replace it with: ")
   
   # Read in the file
-  with open('sol_list.txt', 'r') as file_1 :
+  with open(INPUT_FILE, 'r') as file_1 :
     filedata = file_1.read()
 
   # Replace raw_input with input
   filedata = filedata.replace(original, new)
 
   # Write the file out again
-  with open('sol_list.txt', 'w') as file_1:
+  with open(INPUT_FILE, 'w') as file_1:
     file_1.write(filedata)
     
    
 if __name__ == '__main__':
   print(main())
-  py2_3()
+#   word_convert()
 
 
