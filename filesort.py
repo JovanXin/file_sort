@@ -1,39 +1,34 @@
-# with open("ex_list.txt", 'r') as file_1, open("sol_list.txt", "a") as file_2:
-#   for line in file_1:
-#     if ("Solution:") in line:
-#       file_2.write(line)
-#     else:
-#       print("not in line bro")
+def main():
 
-cur_line = 0 
-starting_lines = []
-ending_lines = []
-final_lines = []
-i = 1
+  print_line = False
+  solution_number = 1
 
+  with open("ex_list.txt", 'r') as file_1, open("sol_list.txt", "w") as file_2:
+    for line in file_1:
 
-with open("ex_list.txt", 'r') as file_1, open("sol_list.txt", "a") as file_2:
-  for line in file_1:
-    cur_line += 1
-    if ("Solution") in line:
-      starting_lines.append(str(cur_line))
-      file_2.write(line)
-    elif ("Question") in line:
-      ending_lines.append(str(cur_line))
-      file_2.write(line)
+      '''
+      Once we have reached a solution, start printing
+      '''
+      if "Solution" in line:
 
+        file_2.write(f"\nSolution: {solution_number}\n")
+        #sys.stdout.write(f"Solution: {solution_number}")
+        
+        solution_number += 1 
+        print_line = True;
+        continue
 
-print(", ".join(starting_lines)) 
-print(", ".join(ending_lines))
-
-print(f"There are {len(starting_lines)} Questions") #well, there seems to be more solutions than answers... so this project is a faliure
-print(f"There are {len(ending_lines)} Solutions") 
-
-
-#original plan:
-#Ending line[i] - Starting line[i] to get the number of lines we need to read.
-
-#then, for lines in range (number of lines we need to read) from starting_line to ending_line:
-#file_2.write(f"{i}:\n {lines}")
-
-#this project has come to a close, failed. 
+      '''
+      Print until end of solution has been reached
+      '''
+      if print_line:
+        if "#----------------------------------------#" in line:
+          print_line = False;
+          continue
+        
+        file_2.write(line)
+        
+    return("It is successful")
+    
+if __name__ == '__main__':
+  print(main())
