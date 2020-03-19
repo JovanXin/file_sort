@@ -1,0 +1,19 @@
+
+
+ Date: 2020-03-20 12:03:38.468193 
+Starting Word: Solution 
+Ending Word:#----------------------------------------#
+Input File:original.txt
+Output File:solutions.txt
+
+ Date: 2020-03-20 12:04:06.193569 
+Starting Word: Hints 
+Ending Word:Solution
+Input File:original.txt
+Output File:hints.txt
+
+ Date: 2020-03-20 12:04:28.745647 
+Starting Word: Question 
+Ending Word:Hints
+Input File:original.txt
+Output File:questions.txt
