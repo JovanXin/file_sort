@@ -28,3 +28,12 @@ print(", ".join(ending_lines))
 
 print(f"There are {len(starting_lines)} Questions") #well, there seems to be more solutions than answers... so this project is a faliure
 print(f"There are {len(ending_lines)} Solutions") 
+
+
+#original plan:
+#Ending line[i] - Starting line[i] to get the number of lines we need to read.
+
+#then, for lines in range (number of lines we need to read) from starting_line to ending_line:
+#file_2.write(f"{i}:\n {lines}")
+
+#this project has come to a close, failed. 
